@@ -1,0 +1,39 @@
+:root { --bg:#fff; --card:#f4f4f6; --text:#16161a; --muted:#707080; --red:#E50914; --border:#e4e4ea; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#151518; --card:#212126; --text:#f2f2f5; --muted:#9a9aa8; --border:#2f2f36; }
+}
+* { box-sizing: border-box; }
+body { margin:0; width:280px; padding:14px; background:var(--bg); color:var(--text);
+  font:13px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+header { display:flex; gap:10px; align-items:center; }
+header img { border-radius:8px; }
+h1 { font-size:15px; margin:0; }
+.status { margin:1px 0 0; color:var(--muted); font-size:12px; }
+.status.ok::before { content:"● "; color:#22c55e; }
+.status.none::before { content:"● "; color:#9ca3af; }
+
+.display { display:flex; align-items:center; justify-content:space-between; margin:14px 0; }
+.readout { font-size:46px; font-weight:800; color:var(--red); font-variant-numeric:tabular-nums; letter-spacing:-1px; }
+.readout small { font-size:22px; margin-left:2px; }
+.round { width:44px; height:44px; border-radius:50%; border:none; background:var(--card);
+  color:var(--text); font-size:24px; cursor:pointer; }
+.round:hover { background:var(--red); color:#fff; }
+.round:active { transform:scale(.92); }
+
+.presets { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; margin-bottom:14px; }
+.presets button { padding:8px 0; border-radius:8px; border:none; background:var(--card);
+  color:var(--text); cursor:pointer; font-weight:600; font-size:12px; }
+.presets button:hover { outline:1px solid var(--red); }
+.presets button.active { background:var(--red); color:#fff; }
+
+.row { display:flex; align-items:center; justify-content:space-between; padding:10px 12px;
+  background:var(--card); border-radius:10px; cursor:pointer; position:relative; }
+.row input { position:absolute; opacity:0; pointer-events:none; }
+.switch { width:34px; height:20px; border-radius:20px; background:#9ca3af66; position:relative; flex:none; transition:background .15s; }
+.switch::after { content:""; position:absolute; top:2px; left:2px; width:16px; height:16px; border-radius:50%;
+  background:#fff; transition:transform .15s; box-shadow:0 1px 3px rgba(0,0,0,.3); }
+input:checked + .switch { background:var(--red); }
+input:checked + .switch::after { transform:translateX(14px); }
+b#hostName { max-width:110px; display:inline-block; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; vertical-align:bottom; }
+footer { text-align:center; color:var(--muted); font-size:11px; margin-top:12px; }
+kbd { background:var(--card); border-radius:4px; padding:1px 5px; font-size:11px; }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Speed Controller</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon48.png" alt="" width="32" height="32">
+    <div>
+      <h1>Video Speed</h1>
+      <p id="status" class="status">Checking page…</p>
+    </div>
+  </header>
+
+  <section class="display">
+    <button id="minus" class="round" aria-label="Slower">−</button>
+    <div class="readout"><span id="speedVal">1.00</span><small>×</small></div>
+    <button id="plus" class="round" aria-label="Faster">+</button>
+  </section>
+
+  <section id="presets" class="presets"></section>
+
+  <label class="row">
+    <span>Disable on <b id="hostName">this site</b></span>
+    <input type="checkbox" id="disableSite"><i class="switch"></i>
+  </label>
+
+  <footer>Keys: <kbd>S</kbd> slower · <kbd>D</kbd> faster · <kbd>R</kbd> reset</footer>
+  <script src="popup.js"></script>
+</body>
+</html>
